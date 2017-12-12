@@ -27,8 +27,8 @@ RUN ln -s /etc/apache2/mods-available/headers.load /etc/apache2/mods-enabled/
 RUN ln -s /etc/apache2/mods-available/rewrite.load /etc/apache2/mods-enabled/
 
 EXPOSE 80
-COPY docker/vhost.conf /etc/apache2/sites-available/000-default.conf
-COPY docker/php.ini /usr/local/etc/php
+COPY vhost.conf /etc/apache2/sites-available/000-default.conf
+COPY php.ini /usr/local/etc/php
 RUN alias sf="php bin/console"
 WORKDIR "/var/www"
 CMD ["apache2-foreground"]
