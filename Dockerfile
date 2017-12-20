@@ -5,7 +5,7 @@ RUN apt-get -qq update \
         ca-certificates curl git \
         libcurl4-gnutls-dev openssl libssl-dev libpng-dev libxml++2.6-dev libxslt-dev \
         libfreetype6-dev libjpeg62-turbo-dev coreutils vim mysql-client \
-        libicu-dev \
+        libicu-dev zlib1g-dev \
     && rm -r /var/lib/apt/lists/*
 
 RUN rm /etc/localtime \
