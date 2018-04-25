@@ -32,7 +32,9 @@ RUN groupadd -g 1000 appuser && \
 COPY vhost.conf /etc/apache2/sites-available/000-default.conf
 COPY php.ini /usr/local/etc/php
 RUN sed -i "s/80/8000/g" /etc/apache2/ports.conf
-RUN mkdir -p /var/run/apache2 && chown -R appuser: /var/run/apache2/
+RUN mkdir -p /var/run/apache2 \
+    && chown -R appuser: /var/run/apache2/ \
+    && chown -R appuser: /var/www
 EXPOSE 8000
 
 USER appuser
