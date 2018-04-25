@@ -26,7 +26,8 @@ RUN ln -s /etc/apache2/mods-available/expires.load /etc/apache2/mods-enabled/
 RUN ln -s /etc/apache2/mods-available/headers.load /etc/apache2/mods-enabled/
 RUN ln -s /etc/apache2/mods-available/rewrite.load /etc/apache2/mods-enabled/
 
-RUN useradd -r -u 1000 -g appuser appuser
+RUN groupadd -g 1000 appuser && \
+     useradd -r -u 1000 -g appuser appuser
 USER appuser
 EXPOSE 8000
 
