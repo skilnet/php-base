@@ -26,7 +26,10 @@ RUN ln -s /etc/apache2/mods-available/expires.load /etc/apache2/mods-enabled/
 RUN ln -s /etc/apache2/mods-available/headers.load /etc/apache2/mods-enabled/
 RUN ln -s /etc/apache2/mods-available/rewrite.load /etc/apache2/mods-enabled/
 
-EXPOSE 80
+RUN useradd -r -u 1000 -g appuser appuser
+USER appuser
+EXPOSE 8000
+
 COPY vhost.conf /etc/apache2/sites-available/000-default.conf
 COPY php.ini /usr/local/etc/php
 RUN alias sf="php bin/console"
