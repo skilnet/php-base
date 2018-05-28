@@ -1,4 +1,4 @@
-FROM php:7.2.4-apache-stretch
+FROM php:7.2.6-apache-stretch
 
 RUN apt-get -qq update \
         && apt-get install --assume-yes --quiet --no-install-recommends \
