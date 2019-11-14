@@ -11,16 +11,17 @@ jobs:
     steps:
     - uses: actions/checkout@v1
       
-#    - name: Pull old Docker image
-#      run: docker pull docker.pkg.github.com/Richard87/php-base:latest && echo "pulled-maybeish"
     - name: Login to Docker
       run: docker login docker.pkg.github.com -p ${{secrets.GH_TOKEN}} -u test
       
+    - name: Pull old Docker image
+      run: docker pull docker.pkg.github.com/Richard87/php-base/php-base:latest && echo "pulled-maybeish"
+
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag docker.pkg.github.com/richard87/php-base:${{ github.sha }} --tag docker.pkg.github.com/richard87/php-base:latest
+      run: docker build . --file Dockerfile --tag docker.pkg.github.com/richard87/php-base/php-base:${{ github.sha }} --tag docker.pkg.github.com/richard87/php-base/php-base:latest
     
     - name: Push image 1
-      run: docker push docker.pkg.github.com/richard87/php-base:${{ github.sha }} 
+      run: docker push docker.pkg.github.com/richard87/php-base/php-base:${{ github.sha }} 
       
     - name: Push image 2
-      run: docker push docker.pkg.github.com/richard87/php-base:latest
+      run: docker push docker.pkg.github.com/richard87/php-base/php-base:latest
