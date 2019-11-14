@@ -10,5 +10,9 @@ jobs:
 
     steps:
     - uses: actions/checkout@v1
+      
+    - name: Pull old Docker image
+      run: docker pull php-base:latest
+      
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag php-base:${{ github.sha }} --tag php-base:latest
