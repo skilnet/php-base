@@ -12,7 +12,8 @@ jobs:
     - uses: actions/checkout@v1
       
     - name: Pull old Docker image
-      run: docker pull docker.pkg.github.com/Richard87/php-base:latest
+      run: docker pull docker.pkg.github.com/Richard87/php-base:latest && echo "pulled-maybeish"
+      
       
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag docker.pkg.github.com/Richard87/php-base:${{ github.sha }} --tag docker.pkg.github.com/Richard87/php-base:latest
