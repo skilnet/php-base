@@ -1,4 +1,4 @@
-FROM php:7.3.5-apache-stretch
+FROM php:7.4.0RC5-apache-buster
 
 RUN apt-get -qq update \
         && apt-get install --assume-yes --quiet --no-install-recommends \
