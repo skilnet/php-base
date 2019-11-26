@@ -31,7 +31,7 @@ COPY php.ini /usr/local/etc/php
 RUN sed -i "s/80/8000/g" /etc/apache2/ports.conf \
     && mkdir -p /var/run/apache2 \
     && chown -R appuser: /var/run/apache2/ \
-    && chown -R appuser: /var/www
+    && chown -R appuser: /var/www \
     && chown -R appuser: /var/log/apache2
 EXPOSE 8000
 
