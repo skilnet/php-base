@@ -15,7 +15,7 @@ jobs:
       run: docker login docker.pkg.github.com -p ${{secrets.GH_TOKEN}} -u test
       
     - name: Pull old Docker image
-      run: docker pull docker.pkg.github.com/Richard87/php-base/php-base:latest || echo "pulled-maybeish"
+      run: docker pull docker.pkg.github.com/richard87/php-base/php-base:latest || echo "pulled-maybeish"
 
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag docker.pkg.github.com/richard87/php-base/php-base:${{ github.sha }} --tag docker.pkg.github.com/richard87/php-base/php-base:latest
