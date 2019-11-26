@@ -1,4 +1,4 @@
-FROM php:7.4.0RC5-apache-buster
+FROM php:7.4.0RC6-apache-buster
 
 RUN apt-get -qq update \
         && apt-get install --assume-yes --quiet --no-install-recommends \
@@ -32,6 +32,7 @@ RUN sed -i "s/80/8000/g" /etc/apache2/ports.conf \
     && mkdir -p /var/run/apache2 \
     && chown -R appuser: /var/run/apache2/ \
     && chown -R appuser: /var/www
+    && chown -R appuser: /var/log/apache2
 EXPOSE 8000
 
 USER appuser
