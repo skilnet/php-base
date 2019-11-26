@@ -35,6 +35,6 @@ RUN sed -i "s/80/8000/g" /etc/apache2/ports.conf \
     && chown -R appuser: /var/log/apache2
 EXPOSE 8000
 
-USER appuser
+ENV APACHE_RUN_USER=appuser
 WORKDIR "/var/www"
 CMD ["apache2-foreground"]
