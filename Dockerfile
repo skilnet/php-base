@@ -1,10 +1,10 @@
-FROM php:7.4.0RC6-apache-buster
+FROM php:7.4-apache
 
 RUN apt-get -qq update \
         && apt-get install --assume-yes --quiet --no-install-recommends \
             ca-certificates curl git libpng-dev libfreetype6-dev libjpeg62-turbo-dev \
             libicu-dev libxml++2.6-dev unzip libzip-dev \
-    && docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ > /dev/null \
+    && docker-php-ext-configure gd --with-freetype=/usr/include/ --with-jpeg=/usr/include/ > /dev/null \
     && docker-php-ext-install bcmath  exif gd intl pdo_mysql soap zip xml \
     && docker-php-ext-enable opcache \
     && docker-php-source delete > /dev/null \
