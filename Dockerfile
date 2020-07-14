@@ -1,4 +1,4 @@
-FROM php:7.4.5-apache
+FROM php:7.4.8-apache
 
 RUN apt-get -qq update \
         && apt-get install --assume-yes --quiet --no-install-recommends \
