@@ -2,7 +2,7 @@ FROM php:7.4.13-apache
 
 RUN apt-get -qq update \
         && apt-get install --assume-yes --quiet --no-install-recommends \
-            ca-certificates curl libpng-dev libfreetype6-dev libjpeg62-turbo-dev \
+            ca-certificates git curl libpng-dev libfreetype6-dev libjpeg62-turbo-dev \
             libicu-dev libxml++2.6-dev unzip libzip-dev \
     && docker-php-ext-configure gd --with-freetype=/usr/include/ --with-jpeg=/usr/include/ > /dev/null \
     && docker-php-ext-install bcmath  exif gd intl pdo_mysql soap zip xml \
