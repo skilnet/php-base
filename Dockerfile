@@ -5,7 +5,7 @@ RUN apt-get -qq update \
             ca-certificates git curl libpng-dev libfreetype6-dev libjpeg62-turbo-dev \
             libicu-dev libxml++2.6-dev unzip libzip-dev libpq5 libpq-dev \
     && docker-php-ext-configure gd --with-freetype=/usr/include/ --with-jpeg=/usr/include/ > /dev/null \
-    && docker-php-ext-install bcmath  exif gd intl pdo_mysql pdo_pgsql pgsql soap zip xml \
+    && docker-php-ext-install bcmath  exif gd intl pdo_mysql pdo_pgsql pgsql soap zip xml mysqli \
     && docker-php-ext-enable opcache \
     && docker-php-source delete > /dev/null \
 # remove dev-dependencies
