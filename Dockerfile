@@ -29,7 +29,7 @@ RUN rm /etc/localtime \
 COPY php.ini /usr/local/etc/php
 COPY www.conf /usr/local/etc/php-fpm.d/zz-docker.conf
 RUN chown -R appuser: /var/www
-EXPOSE 8443
+EXPOSE 8443 8000
 
 WORKDIR "/var/www"
 CMD ["php-fpm"]

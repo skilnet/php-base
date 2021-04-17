@@ -1,8 +1,9 @@
 {
     debug
     local_certs
+    http_port 8000
     https_port 8443
-    auto_https disable_redirects
+    default_sni localhost
 }
 
 localhost {
