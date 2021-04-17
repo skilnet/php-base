@@ -1,0 +1,16 @@
+{
+    debug
+    local_certs
+    https_port 8443
+    auto_https disable_redirects
+}
+
+localhost {
+    log
+    root * /var/www/public
+    tls internal
+
+    php_fastcgi unix//var/run/php/php-fpm.sock
+    encode zstd gzip
+    file_server
+}
