@@ -1,15 +1,11 @@
 {
     debug
-    local_certs
     http_port 8000
-    https_port 8443
-    default_sni localhost
 }
 
-localhost {
+localhost:8000 {
     log
     root * /var/www/public
-    tls internal
 
     php_fastcgi unix//var/run/php/php-fpm.sock
     encode zstd gzip
