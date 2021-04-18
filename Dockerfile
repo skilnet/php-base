@@ -12,9 +12,6 @@ RUN apt-get -qq update \
     && apt-get remove --assume-yes --quiet libpng-dev libfreetype6-dev libpq-dev libjpeg62-turbo-dev libicu-dev libxml++2.6-dev libzip-dev python3 \
     && rm -r /var/lib/apt/lists/*
 
-# Install Caddy
-COPY caddy Caddyfile /
-
 # Configure time
 RUN rm /etc/localtime \
     && ln -s /usr/share/zoneinfo/Europe/Paris /etc/localtime \
