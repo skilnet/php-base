@@ -7,6 +7,7 @@ RUN apt-get -qq update \
     && docker-php-ext-configure gd --with-freetype=/usr/include/ --with-jpeg=/usr/include/ > /dev/null \
     && docker-php-ext-install bcmath  exif gd intl pdo_mysql pdo_pgsql pgsql soap zip xml mysqli \
     && docker-php-ext-enable opcache \
+    && pecl install xdebug \
     && docker-php-source delete > /dev/null \
 # remove dev-dependencies
     && apt-get remove --assume-yes --quiet libpng-dev libfreetype6-dev libpq-dev libjpeg62-turbo-dev libicu-dev libxml++2.6-dev libzip-dev python3 \
