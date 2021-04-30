@@ -1,4 +1,4 @@
-FROM php:8.0.3-fpm-buster
+FROM php:8.0.5-fpm-buster
 
 RUN apt-get -qq update \
         && apt-get install --assume-yes --quiet --no-install-recommends \
