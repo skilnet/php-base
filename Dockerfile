@@ -6,8 +6,8 @@ RUN apt-get -qq update \
             libicu-dev libxml++2.6-dev unzip libzip-dev libpq5 libpq-dev procps vim default-mysql-client \
     && docker-php-ext-configure gd --with-freetype=/usr/include/ --with-jpeg=/usr/include/ > /dev/null \
     && docker-php-ext-install bcmath  exif gd intl pdo_mysql pdo_pgsql pgsql soap zip xml mysqli \
-    && docker-php-ext-enable opcache \
     && pecl install xdebug redis \
+    && docker-php-ext-enable opcache redis \
     && docker-php-source delete > /dev/null \
 # remove dev-dependencies
     && apt-get remove --assume-yes --quiet libpng-dev libfreetype6-dev libpq-dev libjpeg62-turbo-dev libicu-dev libxml++2.6-dev libzip-dev python3 \
@@ -27,7 +27,7 @@ RUN rm /etc/localtime \
 COPY php.ini /usr/local/etc/php
 COPY www.conf /usr/local/etc/php-fpm.d/zz-docker.conf
 RUN chown -R appuser: /var/www
-EXPOSE 8443 8000ª
+EXPOSE 8443 8000
 
 WORKDIR "/var/www"
 CMD ["php-fpm"]
