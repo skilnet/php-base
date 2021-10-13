@@ -5,9 +5,9 @@ RUN apt-get -qq update \
             ca-certificates git curl libpng-dev libfreetype6-dev libjpeg62-turbo-dev \
             libicu-dev libxml++2.6-dev unzip libzip-dev libpq5 libpq-dev procps vim default-mysql-client \
     && docker-php-ext-configure gd --with-freetype=/usr/include/ --with-jpeg=/usr/include/ > /dev/null \
-    && docker-php-ext-install bcmath  exif gd intl pdo_mysql pdo_pgsql pgsql soap zip xml mysqli redis \
+    && docker-php-ext-install bcmath  exif gd intl pdo_mysql pdo_pgsql pgsql soap zip xml mysqli \
     && docker-php-ext-enable opcache \
-    && pecl install xdebug \
+    && pecl install xdebug redis \
     && docker-php-source delete > /dev/null \
 # remove dev-dependencies
     && apt-get remove --assume-yes --quiet libpng-dev libfreetype6-dev libpq-dev libjpeg62-turbo-dev libicu-dev libxml++2.6-dev libzip-dev python3 \
