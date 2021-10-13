@@ -1,11 +1,11 @@
-FROM php:8.0.5-fpm-buster
+FROM --platform=linux/amd64 php:8.0.11-fpm-buster
 
 RUN apt-get -qq update \
         && apt-get install --assume-yes --quiet --no-install-recommends \
             ca-certificates git curl libpng-dev libfreetype6-dev libjpeg62-turbo-dev \
             libicu-dev libxml++2.6-dev unzip libzip-dev libpq5 libpq-dev procps vim default-mysql-client \
     && docker-php-ext-configure gd --with-freetype=/usr/include/ --with-jpeg=/usr/include/ > /dev/null \
-    && docker-php-ext-install bcmath  exif gd intl pdo_mysql pdo_pgsql pgsql soap zip xml mysqli \
+    && docker-php-ext-install bcmath  exif gd intl pdo_mysql pdo_pgsql pgsql soap zip xml mysqli redis \
     && docker-php-ext-enable opcache \
     && pecl install xdebug \
     && docker-php-source delete > /dev/null \
@@ -27,7 +27,7 @@ RUN rm /etc/localtime \
 COPY php.ini /usr/local/etc/php
 COPY www.conf /usr/local/etc/php-fpm.d/zz-docker.conf
 RUN chown -R appuser: /var/www
-EXPOSE 8443 8000
+EXPOSE 8443 8000ª
 
 WORKDIR "/var/www"
 CMD ["php-fpm"]
