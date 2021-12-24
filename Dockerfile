@@ -1,9 +1,9 @@
-FROM --platform=linux/amd64 php:8.0.11-fpm-buster
+FROM --platform=linux/amd64 php:8.0.11-fpm-bullseye
 
 RUN apt-get -qq update \
         && apt-get install --assume-yes --quiet --no-install-recommends \
             ca-certificates git curl libpng-dev libfreetype6-dev libjpeg62-turbo-dev \
-            libicu-dev libxml++2.6-dev unzip libzip-dev libpq5 libpq-dev procps vim default-mysql-client \
+            libicu-dev libstdc++6 libxml++2.6-dev unzip libzip-dev libpq5 libpq-dev procps vim default-mysql-client \
     && docker-php-ext-configure gd --with-freetype=/usr/include/ --with-jpeg=/usr/include/ > /dev/null \
     && docker-php-ext-install bcmath  exif gd intl pdo_mysql pdo_pgsql pgsql soap zip xml mysqli \
     && pecl install xdebug redis \
