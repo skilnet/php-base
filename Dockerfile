@@ -1,4 +1,4 @@
-FROM --platform=linux/amd64 php:8.1.7-fpm-bullseye
+FROM --platform=linux/amd64 php:8.2.0-fpm-bullseye
 
 RUN apt-get -qq update \
         && apt-get install --assume-yes --quiet --no-install-recommends \

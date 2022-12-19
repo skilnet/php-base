@@ -8,6 +8,6 @@ Runs a `appuser` / UID: `1000`
 
 
 ```shell
-docker build . -t gcr.io/skil-196709/github.com/skilnet/php-base:8.1.7.0-fpm
-docker push gcr.io/skil-196709/github.com/skilnet/php-base:8.1.7.0-fpm
+docker build . -t gcr.io/skil-196709/github.com/skilnet/php-base:8.2.0-fpm
+docker push gcr.io/skil-196709/github.com/skilnet/php-base:8.2.0-fpm
 ```
